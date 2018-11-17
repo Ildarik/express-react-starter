@@ -8,6 +8,8 @@
     "debug": "~2.6.3",
     "express": "^4.15.3",
     "jade": "^1.11.0",
+    "mongodb": "^3.1.10",
+    "mongoose": "^5.3.12",
     "morgan": "^1.8.2",
     "react": "^15.6.1",
     "react-dom": "^15.6.1"
@@ -18,8 +20,7 @@
     "react-scripts": "1.0.10"
   },
   "scripts": {
-    "start":
-      "concurrently \"react-scripts start\" \"nodemon server/server.js\"",
+    "start": "concurrently \"react-scripts start\" \"nodemon server/server.js\"",
     "build": "react-scripts build && mv build server",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
