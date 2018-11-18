@@ -1,4 +1,3 @@
-// var app = require("./app");
 var debug = require("debug")("express-react:server");
 var http = require("http");
 const mysql = require("mysql");
@@ -170,9 +169,9 @@ app.get("/rate", function(req, res) {
       if (!results[0]) {
         return res.json("3.62");
       }
-    const rate = (results[0].rate * 100).toFixed(2);
+      const rate = (results[0].rate * 100).toFixed(2);
 
-    return res.json(parseFloat(rate));
+      return res.json(parseFloat(rate));
     }
   });
 });
