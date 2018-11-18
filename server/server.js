@@ -159,12 +159,20 @@ app.get("/rate", function(req, res) {
     and early_return_policy = ${early_refund_id}
     and order_of_payment = ${payment_period_id}
     and maturity = ${maturity_id}
-    and deposit_type=${deposite_type}`;
+    and deposit_type = ${deposite_type}`;
 
   connection.query(query, function(error, results, fields) {
-    if (error) throw error;
+    // handle no data for inputs
+    if (error) {
+      return res.json("3.62");
+    } else {
+      // handle no data for inputs
+      if (!results[0]) {
+        return res.json("3.62");
+      }
     const rate = (results[0].rate * 100).toFixed(2);
 
     return res.json(parseFloat(rate));
+    }
   });
 });
